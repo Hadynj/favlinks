@@ -10,4 +10,11 @@ function Table(){
         </table>
     )
 }
+function Tablebody(){
+    /*responsible for rendering the data for our table*/
+    return (
+        <tbody></tbody>
+    )
+}
+
 export default Table
