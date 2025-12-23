@@ -1,4 +1,4 @@
-function Table(){
+function TableHeader(){
     /* responsible for rendering the text head with the appropriate column*/
     return (
         <table>
@@ -17,4 +17,12 @@ function Tablebody(){
     )
 }
 
+function Table(){
+    return (
+        <table>
+            <TableHeader/>
+            <TableBody/>
+        </table>
+    )
+}
 export default Table
