@@ -36,11 +36,12 @@ const TableBody = (props) => {
     )
 }
 
-function Table(){
-    return (
+function Table(props){
+    return(
         <table>
             <TableHeader/>
-            <TableBody/>
+            <TableBody linkData={props.linkData} removeLink={props.removeLink}/>
+           
         </table>
     )
 }
