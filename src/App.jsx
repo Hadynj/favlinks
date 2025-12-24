@@ -1,8 +1,13 @@
-function App(){
+import React from 'react'
+import LinkContainer from "./components/LinkContainer"
+
+function App() {
   return (
-    <div>
-      This is our new App component
+    <div className="App"> 
+    <LinkContainer />
     </div>
   )
+
 }
+
 export default App
