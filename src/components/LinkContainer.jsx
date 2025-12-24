@@ -14,7 +14,7 @@ useEffect(() => {
 
 const fetchLinks = async () => {
     try {
-        const response = await fetch('http://localhost:9001/links')
+        const response = await fetch('http://localhost:5500/links')
         const data = await response.json()
         setFavLinks(data)
     } catch (error) {
@@ -24,7 +24,7 @@ const fetchLinks = async () => {
 
 const handleSubmit = async (newLink) => {
     try {
-        const response = await fetch('http://localhost:9001/links', {
+        const response = await fetch('http://localhost:5500/links', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const handleRemove = async (index) => {
     }
     
     try {
-        const response = await fetch(`http://localhost:9001/links/${linkToDelete.id}`, {
+        const response = await fetch(`http://localhost:5500/links/${linkToDelete.id}`, {
             method: 'DELETE'
         })
         

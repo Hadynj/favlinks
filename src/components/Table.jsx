@@ -1,48 +1,46 @@
-function TableHeader(){
-    /* responsible for rendering the text head with the appropriate column*/
+function TableHeader() {
     return (
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>URL</th>
-                <th>Remove</th>
-            </tr>
-        </table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
     )
-}
-const TableBody = (props) => {
-    // boilerplate table body functional component
-    // we use Array.map to create table rows from LinkData passed via props
-    const rows = props.linkData.map((row, index) => {
-        return(
-            <tr key={row.id || index}>
-            <td> {row.name}</td>
+  }
+  
+  const TableBody = ({ linkData, removeLink }) => {
+    return (
+      <tbody>
+        {linkData.map((row) => (
+          <tr key={row.id}>
+            <td>{row.name}</td>
             <td>
-                <a href={row.URL}>{row.URL}</a>
+              <a href={row.url} target="_blank" rel="noreferrer">
+                {row.url}
+              </a>
             </td>
             <td>
-                <button onClick = {() => props.removeLink 
-                    (index)}>Delete
-                </button>
+              <button onClick={() => removeLink(row.id)}>Delete</button>
             </td>
-            </tr>
-        )
-    })
-    
-    return(
-        <tbody>
-            {rows}
-        </tbody>
+          </tr>
+        ))}
+      </tbody>
     )
-}
-
-function Table(props){
-    return(
-        <table>
-            <TableHeader/>
-            <TableBody linkData={props.linkData} removeLink={props.removeLink}/>
-           
-        </table>
+  }
+  
+  function Table(props) {
+    return (
+      <table>
+        <TableHeader />
+        <TableBody
+          linkData={props.linkData}
+          removeLink={props.removeLink}
+        />
+      </table>
     )
-}
-export default Table
+  }
+  
+  export default Table
+  
